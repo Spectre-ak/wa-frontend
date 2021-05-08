@@ -1,4 +1,5 @@
 import React from 'react';
+import Product_search_date_component from './product_date_search_component.js';
 import Product_search_component from './Product_search_component.js'
 
 class Project extends React.Component {
@@ -33,6 +34,7 @@ class Project extends React.Component {
                     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                         <h6>Products</h6>
                         <Product_search_component/>
+                        <Product_search_date_component/>
                     </div>
                     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                         resources realayted
