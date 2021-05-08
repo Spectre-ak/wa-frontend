@@ -4,15 +4,23 @@ import { useState, Fragment } from "react";
 
 
 const ProjectInput = () => {
-
+    var currHack=document.createElement("pre");
+    currHack.id="ProjectInputIDRecommendations";currHack.style.display="none";
+    document.body.appendChild(currHack);
     const [inputFields, setInputFields] = useState([
-        { projectName: "asd", startDate: "d", endDate: "asd" }
-
+        {
+            junior: false, mid: false, senior: false,
+            engr:false,ux:false,pm:false
+        }
+        
     ]);
 
     const handleAddFields = () => {
         const values = [...inputFields];
-        values.push({ projectName: "", startDate: "", endDate: "" });
+        values.push({
+            junior: false, mid: false, senior: false,
+            engr:false,ux:false,pm:false
+        });
         setInputFields(values);
     };
 
@@ -33,54 +41,101 @@ const ProjectInput = () => {
         else if (event.target.name === "endDate") {
             values[index].endDate = event.target.value;
         }
-
+        else if (event.target.id === "inlineRadio1") {
+            values[index].junior = true;
+            values[index].mid = false;
+            values[index].senior = false;
+        }
+        else if (event.target.id === "inlineRadio2") {
+            values[index].mid = true;
+            values[index].senior = false;
+            values[index].junior = false;
+        }
+        else if (event.target.id === "inlineRadio3") {
+            values[index].senior = true;
+            values[index].junior = false;
+            values[index].mid = false;
+        }
+        else if (event.target.id === "inlineRadio1Engr") {
+            values[index].engr = true;
+            values[index].pm = false;
+            values[index].ux = false;
+        }else if (event.target.id === "inlineRadio2UX") {
+            values[index].ux = true;
+            values[index].pm = false;
+            values[index].engr = false;
+        }else if (event.target.id === "inlineRadio3PM") {
+            values[index].pm = true;
+            values[index].engr = false;
+            values[index].ux = false;
+        }
         setInputFields(values);
+        console.log("inputFields", inputFields);
+        var currHack=document.getElementById("ProjectInputIDRecommendations");
+        //currHack.id="ProjectInputIDRecommendations";currHack.style.display="none";
+        currHack.innerHTML=JSON.stringify(inputFields);
+        
+    
     };
 
     const handleSubmit = e => {
         e.preventDefault();
-        console.log("inputFields", inputFields);
+        
     };
 
     return (
         <>
-            <h1>projects</h1>
             <form onSubmit={handleSubmit}>
+            <h5>Add Number of Resources based on role and level</h5>
+            
                 <div className="">
                     {inputFields.map((inputField, index) => (
                         <Fragment key={`${inputField}~${index}`}>
 
                             <div class="form-group">
 
-                                <label for="example-month-input" >Project Name</label>
-
-                                <input class="form-control" type="text" name="projectName" value={inputField.projectName}
-                                    id="projectName" onChange={event => handleInputChange(index, event)} />
-
-                                <label for="example-month-input" >Start date</label>
-                                <div className="col-12">
-                                    <input class="form-control" type="month" name="startDate" id="startDate" value={inputField.startDate}
-                                        id="start-month-input" onChange={event => handleInputChange(index, event)} />
-                                </div>
-                                <label for="example-month-input" >End date</label>
-                                <div class="col-12">
-                                    <input class="form-control" type="month" name="endDate" id="endDate" value={inputField.endDate}
-                                        id="end-month-input" onChange={event => handleInputChange(index, event)} />
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label" for="asd">Product Location</label>
                                 </div>
 
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
-                                    <label class="form-check-label" for="inlineRadio1">1</label>
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1Engr" value="option1"
+                                        onChange={event => handleInputChange(index, event)} value={inputField.engr} ></input>
+                                    <label class="form-check-label" for="inliddndeRadio1">IL</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
-                                    <label class="form-check-label" for="inlineRadio2">2</label>
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2UX" value="option2"
+                                        onChange={event => handleInputChange(index, event)} value={inputField.ux} />
+                                    <label class="form-check-label" for="inlinefdfgRadio2">TX</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" />
-                                    <label class="form-check-label" for="inlineRadio3">3</label>
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3PM" value="option3"
+                                        onChange={event => handleInputChange(index, event)} value={inputField.pm} />
+                                    <label class="form-check-label" for="inlineRadgfdio3">AZ</label>
                                 </div>
-                                
+                            </div>
+
+                            <div>
+                            
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label" for="asd">Role level</label>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="option1"
+                                        onChange={event => handleInputChange(index, event)} value={inputField.junior} ></input>
+                                    <label class="form-check-label" for="inliddndeRadio1">Junior</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio2" value="option2"
+                                        onChange={event => handleInputChange(index, event)} value={inputField.mid} />
+                                    <label class="form-check-label" for="inlinefdfgRadio2">Mid</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio3" value="option3"
+                                        onChange={event => handleInputChange(index, event)} value={inputField.senior} />
+                                    <label class="form-check-label" for="inlineRadgfdio3">Senior</label>
+                                </div>
                             </div>
 
 
@@ -106,20 +161,12 @@ const ProjectInput = () => {
                         </Fragment>
                     ))}
                 </div>
-                <div className="submit-button">
-                    <button
-                        className="btn btn-primary mr-2"
-                        type="submit"
-                        onSubmit={handleSubmit}
-                    >
-                        Save
-                </button>
-                </div>
+                
                 <br />
                 <pre>
-                    {JSON.stringify(inputFields, null, 2)}
+                    {JSON.stringify(inputFields)}
                 </pre>
-            </form>
+                </form>
         </>
     );
 };
@@ -129,41 +176,7 @@ export default function MaxResources() {
         <div>
 
             <ProjectInput />
-            <h5>Max no of resources</h5>
-            <br />
 
-            <div class="form-check" id="maxNoOfResources">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
-                <label class="form-check-label" for="flexRadioDefault1">
-                    Below 3
-                            </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
-                <label class="form-check-label" for="flexRadioDefault2">
-                    Below 5
-                            </label>
-
-            </div>
-
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" />
-                <label class="form-check-label" for="flexRadioDefault3">
-                    Above 5
-                                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" />
-                <label class="form-check-label" for="flexRadioDefault3">
-                    Above 5
-                                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" />
-                <label class="form-check-label" for="flexRadioDefault3">
-                    Above 5
-                                </label>
-            </div>
         </div>
     )
 }
