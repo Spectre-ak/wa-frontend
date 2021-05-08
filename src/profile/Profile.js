@@ -60,7 +60,8 @@ class Profile extends React.Component {
         console.log(res);
         if(res.includes("false")){
             //alert(res);
-            window.location.href="http://localhost:3000/login";
+            //window.location.href="http://localhost:3000/login";
+            window.location.href="https://woay.azurewebsites.net/login";
         }
         
     }
