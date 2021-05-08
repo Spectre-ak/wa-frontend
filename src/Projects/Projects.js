@@ -1,6 +1,7 @@
 import React from 'react';
 import Product_search_date_component from './product_date_search_component.js';
 import Product_search_component from './Product_search_component.js'
+import Resource_search_component from './resource_search_component.js'
 
 class Project extends React.Component {
     constructor(props) {
@@ -37,8 +38,8 @@ class Project extends React.Component {
                         <Product_search_date_component/>
                     </div>
                     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                        resources realayted
-                        ujkukuk
+                        <h6>Resources</h6>
+                        <Resource_search_component/>
                     </div>
                     <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
                         location realted details

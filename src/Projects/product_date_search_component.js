@@ -1,8 +1,8 @@
 import React from "react"
 
-function Product_search_date_component(){
+function Product_search_date_component(  ){
+    
     return(
-        
         <div>
             <div className="container">
                 <label> Project Start Date: </label>
