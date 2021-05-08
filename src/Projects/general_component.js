@@ -16,7 +16,7 @@ function General_component(){
 
                     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                     <div class="card-body">
-                    Engrs:PM:UX--  15:6:7
+                    Engrs-PM-UX--  15:6:7
                     </div>
                     </div>
                 </div>

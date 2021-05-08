@@ -3,6 +3,12 @@ import Loader from '../Loader'
 import ReactDOM from "react-dom"
 import $ from 'jquery'
 import {m1,m2,m3,m4,m5,m6,m7,m8,f1,f2,f3,f4,f5,f6,f7,f8} from '../UserList';
+import SeniorResource from './SeniorResource';
+import JuniorResource from './JuniorResource';
+import MidResource from './MidResource';
+import EngrRole from './EngrRole';
+import PmResource from './PmResource';
+import UxResource from './UxResource';
 
 function User(props){
     return(
@@ -61,6 +67,9 @@ function doPostResource(prod){
         type:"get",
         success: function(res) {
             console.log(res);
+            if(res["Resource "+prod]==="Does Not Exists"){
+                res["Name"]="Does Not Exists";
+            }
             //var productPart=res[0];
             var gender=res["Gender"];
             var male=[m1,m2,m3,m4,m5,m6,m7,m8];
@@ -78,6 +87,10 @@ function doPostResource(prod){
         }
     });
 }
+
+
+
+
 class Resource_search_component extends React.Component{
     constructor(props){
         super(props);
@@ -92,6 +105,9 @@ class Resource_search_component extends React.Component{
 
     }
 
+    componentDidMount(){
+        
+    }
     render(){
         return(
             <div className="container">
@@ -106,7 +122,10 @@ class Resource_search_component extends React.Component{
                     </div>
                     
 
-                    <div className="container">
+
+                    <div class="row">
+                        <div class="col">
+                        <div className="container">
                         <br></br>
                         <h6>Role Level</h6>
                         <div className="container">
@@ -123,15 +142,22 @@ class Resource_search_component extends React.Component{
                             </ul>
     
                             <div class="tab-content" id="pills-tabContent">
-                            <div class="tab-pane fade show active" id="pills-senior" role="tabpanel" aria-labelledby="pills-senior-tab">.qqqqqqqqqqqqqqqqqqqqqqqqqq..</div>
-                            <div class="tab-pane fade" id="pills-mid" role="tabpanel" aria-labelledby="pills-mid-tab">.sdfsdfasdfsdfsdfsafsdfsdfdfd..</div>
-                            <div class="tab-pane fade" id="pills-junior" role="tabpanel" aria-labelledby="pills-junior-tab">.asdfdf..</div>
+                            <div class="tab-pane fade show active" id="pills-senior" role="tabpanel" aria-labelledby="pills-senior-tab">
+                                <SeniorResource/>
+                            </div>
+                            <div class="tab-pane fade" id="pills-mid" role="tabpanel" aria-labelledby="pills-mid-tab">
+                                 <MidResource/>  
+                                </div>
+                            <div class="tab-pane fade" id="pills-junior" role="tabpanel" aria-labelledby="pills-junior-tab">
+                               <JuniorResource/> 
+                                 </div>
                             </div>
                         </div>
                     </div>
-    
-                    
-                    <div className="container" >
+                        </div>
+
+                        <div class="col">
+                        <div className="container" >
                         <h6>Roles</h6>
                         
                         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -145,13 +171,28 @@ class Resource_search_component extends React.Component{
                                 <a class="nav-link" id="pills-ux-tab" data-toggle="pill" href="#pills-ux" role="tab" aria-controls="pills-ux" aria-selected="false">U.X.</a>
                             </li>
                         </ul>
-                        <div class="tab-content" id="pills-tabContent">
-                            <div class="tab-pane fade show active" id="pills-engr" role="tabpanel" aria-labelledby="pills-engr-tab">aaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-                            <div class="tab-pane fade" id="pills-pm" role="tabpanel" aria-labelledby="pills-pm-tab">bbbbbbbbbbbbbbbbbbbbbbbbbbbbb.</div>
-                            <div class="tab-pane fade" id="pills-ux" role="tabpanel" aria-labelledby="pills-ux-tab">.mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm</div>    
-                        </div>    
+                         <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-engr" role="tabpanel" aria-labelledby="pills-engr-tab">
+                               
+                                <EngrRole/> </div>
+                            <div class="tab-pane fade" id="pills-pm" role="tabpanel" aria-labelledby="pills-pm-tab">. 
+                            <PmResource/>    </div>
+                            <div class="tab-pane fade" id="pills-ux" role="tabpanel" aria-labelledby="pills-ux-tab">. 
+                            <UxResource/>      </div>    
+                        </div>     
     
-                    </div>      
+                    </div>  
+                        
+                        </div>
+                    
+                    </div>
+
+
+
+                    
+    
+                    
+                        
     
     
                         

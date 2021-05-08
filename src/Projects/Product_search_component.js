@@ -4,6 +4,22 @@ import ReactDOM from "react-dom"
 import Loader from '../Loader';
 import $ from 'jquery'
 import UserProfile from '../UserList';
+/*
+
+https://woay-backend.azurewebsites.net/senior ==> returns an array of all senior resources
+
+https://woay-backend.azurewebsites.net/mid ==> returns an array of all mid resources
+
+https://woay-backend.azurewebsites.net/junior ==> returns an array of all junior resources
+
+https://woay-backend.azurewebsites.net/engr ==> returns an array of all engr resources
+
+https://woay-backend.azurewebsites.net/ux ==> returns an array of all ux resources
+
+https://woay-backend.azurewebsites.net/pm  ==> returns an array of all pm resources
+
+
+*/
 
 function ProjectDisplay(props){
     return(
@@ -142,9 +158,7 @@ class Product_search_component  extends React.Component{
                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio15" value="option1"/>
                     <label class="form-check-label" for="inlineRadio15">Product 15</label>
                 </div>
-                <br></br>
                 <div style={{textAlign:"center"}}><button className="btn btn-primary" onClick={this.getRes}>Submit</button></div>
-             
                 
                 <div id="product_search_result">
 
