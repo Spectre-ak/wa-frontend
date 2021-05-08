@@ -31,51 +31,59 @@ function Resource_search_component(props){
                 <button className="btn btn-primary">Submit</button>
             </div>
 
-                <ViewInformationComp Name={"Name"}/>
-                <ViewInformationComp Role={"Role"}/>
-                <ViewInformationComp Role_level={"Role_level"}/>
-                <ViewInformationComp Skills={"Skills"}/>
-                <ViewInformationComp Product_Name={"Product Name"}/>
-                <ViewInformationComp Product_start_date={"Product Start Date"}/>
-                <ViewInformationComp Product_end_date={"Product End Date"}/>
-                <ViewInformationComp location={"Location"}/>
+                <ViewInformationComp Name={"Name"} Role={"Role"} Role_level={"Role_level"} Skills={"Skills"}Product_Name={"Product Name"}Product_start_date={"Product Start Date"}Product_end_date={"Product End Date"}location={"Location"}/>
+
         
-                <div className="container" style={{textAlign:"center"}}>
+                <div className="container">
+                    <br></br>
                     <h6>Role Level</h6>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="role_level" id="resource_senior" value="option1"/>
-                        <label class="form-check-label" for="resource_senior">Senior</label>
+                    <div className="container">
+                        <ul  class="nav nav-pills mb-3" id="pills-tab" role="tablist" >
+                            <li class="nav-item">
+                                <a class="nav-link active" id="pills-senior-tab" data-toggle="pill" href="#pills-senior" role="tab" aria-controls="pills-senior" aria-selected="true">Senior</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-mid-tab" data-toggle="pill" href="#pills-mid" role="tab" aria-controls="pills-mid" aria-selected="false">Mid</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-junior-tab" data-toggle="pill" href="#pills-junior" role="tab" aria-controls="pills-junior" aria-selected="false">Junior</a>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-senior" role="tabpanel" aria-labelledby="pills-senior-tab">.qqqqqqqqqqqqqqqqqqqqqqqqqq..</div>
+                        <div class="tab-pane fade" id="pills-mid" role="tabpanel" aria-labelledby="pills-mid-tab">.sdfsdfasdfsdfsdfsafsdfsdfdfd..</div>
+                        <div class="tab-pane fade" id="pills-junior" role="tabpanel" aria-labelledby="pills-junior-tab">.asdfdf..</div>
+                        </div>
                     </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="role_level" id="resource_mid" value="option2"/>
-                        <label class="form-check-label" for="resource_mid">Mid</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="role_level" id="resource_junior" value="option3"/>
-                        <label class="form-check-label" for="resource_junior">Junior</label>
-                    </div>
-                    <div id="role_level_result"></div>
                 </div>
 
-                <div className="container" style={{textAlign:"center"}}>
+                
+                <div className="container" >
                     <h6>Roles</h6>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="role" id="resource_engr" value="option1"/>
-                        <label class="form-check-label" for="resource_engr">Engr</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="role" id="resource_pm" value="option2"/>
-                        <label class="form-check-label" for="resource_pm">P.M. </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="role" id="resource_ux" value="option3"/>
-                        <label class="form-check-label" for="resource_ux">U.X.</label>
-                    </div>
-                    <div id="role_level_result"></div>
+                    
+                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="pills-engr-tab" data-toggle="pill" href="#pills-engr" role="tab" aria-controls="pills-engr" aria-selected="true">Engr</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-pm-tab" data-toggle="pill" href="#pills-pm" role="tab" aria-controls="pills-pm" aria-selected="false">P.M.</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-ux-tab" data-toggle="pill" href="#pills-ux" role="tab" aria-controls="pills-ux" aria-selected="false">U.X.</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-engr" role="tabpanel" aria-labelledby="pills-engr-tab">aaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+                        <div class="tab-pane fade" id="pills-pm" role="tabpanel" aria-labelledby="pills-pm-tab">bbbbbbbbbbbbbbbbbbbbbbbbbbbbb.</div>
+                        <div class="tab-pane fade" id="pills-ux" role="tabpanel" aria-labelledby="pills-ux-tab">.mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm</div>    
+                    </div>    
+
                 </div>      
-        
-        
-        </div>
+
+
+                    
+                </div>
   
         
     )
