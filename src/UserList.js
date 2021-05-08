@@ -85,7 +85,7 @@ class UserProfile extends React.Component{
 
         console.log(this.props.data);
         var userArr=this.props.data;
-        
+        var counter=1;
 
         var users=[];
         userArr.forEach(element => {
@@ -97,10 +97,12 @@ class UserProfile extends React.Component{
             else{
                 imgSrc=female[Math.floor(Math.random() * 7)]
             }
-            users.push(<User src={imgSrc} data={element} />)
+            counter++;
+            users.push(<User src={imgSrc} data={element} key={counter}/>)
         });
 
         ReactDOM.render(users,document.getElementById("userDetailsGame"));
+        
     }
 
     render(){
@@ -113,5 +115,4 @@ class UserProfile extends React.Component{
 }
 
 export default UserProfile;
-    
 export {m1,m2,m3,m4,m5,m6,m7,m8,f1,f2,f3,f4,f5,f6,f7,f8};
