@@ -143,6 +143,7 @@ class Product_search_component  extends React.Component{
                     <label class="form-check-label" for="inlineRadio15">Product 15</label>
                 </div>
                 <div style={{textAlign:"center"}}><button className="btn btn-primary" onClick={this.getRes}>Submit</button></div>
+                <br></br>
                 
                 <div id="product_search_result">
 
