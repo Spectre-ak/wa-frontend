@@ -15,16 +15,6 @@ class Project extends React.Component {
 
         return (
             <div className="container">
-                <h3>What do you want to know about products</h3>
-                
-
-                    1. get details of a product by product name from a range of products 
-                    Product 1,2,3....
-                    <br/>
-                    2. get details of ongoing projecs based on locations (options)
-
-                    <br/>
-
                     <nav>
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                         <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Products</a>
