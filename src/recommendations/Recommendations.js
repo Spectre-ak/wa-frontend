@@ -6,8 +6,8 @@ import $ from 'jquery';
 
 function doPostRequest(data) {
     $.ajax({
-        url: "http://localhost:8080/getRecommendations",
-        // url:"https://woay.azurewebsites.net/getRecommendations",
+        //url: "http://localhost:8080/getRecommendations",
+        url:"https://woay-backend.azurewebsites.net/recommendations",
         type: "post",
         data: data,
         contentType: false,
@@ -129,10 +129,10 @@ class Recommendations extends React.Component {
             try{
                 var selected=(allSele.childNodes[i].childNodes[0].childNodes[1].selectedIndex);
                 if(selected===0)
-                    res.push("senior");
+                    res.push("Senior");
                 else if(selected===1)
-                    res.push("mid");
-                else res.push("junior")
+                    res.push("Mid");
+                else res.push("Junior")
             }
             catch(E){
                 continue;
