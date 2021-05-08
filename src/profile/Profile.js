@@ -69,21 +69,7 @@ class Profile extends React.Component {
     render() {
         return (
             <div className="container">
-                profile template for employees
-                <br />
-                
-
-                <br />
-
-
-
-
-                <br />
-
-
-                <br />
-                
-
+                profule
             </div>
         )
     }
