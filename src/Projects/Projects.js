@@ -1,4 +1,5 @@
 import React from 'react';
+import Product_search_component from './Product_search_component.js'
 
 class Project extends React.Component {
     constructor(props) {
@@ -11,7 +12,6 @@ class Project extends React.Component {
             <div className="container">
                 <h3>What do you want to know about products</h3>
                 
-                <form>
 
                     1. get details of a product by product name from a range of products 
                     Product 1,2,3....
@@ -31,10 +31,12 @@ class Project extends React.Component {
                     </nav>
                     <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                        product
+                        <h6>Products</h6>
+                        <Product_search_component/>
                     </div>
                     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                         resources realayted
+                        ujkukuk
                     </div>
                     <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
                         location realted details
@@ -46,13 +48,6 @@ class Project extends React.Component {
                     </div>
 
 
-
-
-
-
-
-
-                </form>
             </div>
         )
     }
