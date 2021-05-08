@@ -4,23 +4,26 @@ import MaxResources from './MaxResources';
 import SkillsCheckBox from './SkillsCheckBOX'
 import $ from 'jquery';
 
-function doPostRequest(data){
+function doPostRequest(data) {
     $.ajax({
-        url:"http://localhost:8080/getRecommendations",
-       // url:"https://woay.azurewebsites.net/getRecommendations",
-        type:"post",
-        data:data,
-        contentType:false,
-        processData:false,
-        success:function(response) {
+        url: "http://localhost:8080/getRecommendations",
+        // url:"https://woay.azurewebsites.net/getRecommendations",
+        type: "post",
+        data: data,
+        contentType: false,
+        processData: false,
+        success: function (response) {
             console.log(response);
-             
+
         },
-        error: function(XMLHttpRequest, textStatus, errorThrown) { 
-	       console.log(textStatus,errorThrown);
-	    }
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            console.log(textStatus, errorThrown);
+        }
     });
 }
+
+
+
 
 function DateComponent() {
     return (
@@ -37,7 +40,7 @@ function DateComponent() {
 class Recommendations extends React.Component {
     constructor(props) {
         super(props);
-        this.getRecommendations=this.getRecommendations.bind(this)
+        this.getRecommendations = this.getRecommendations.bind(this)
     }
 
 
@@ -46,21 +49,50 @@ class Recommendations extends React.Component {
             <div className="container">
                 <h3>This will take user inputs and will provide best recommendations based on skills etc...</h3>
 
-                <br />
+                {/* <br />
                 <h5>Select Skills</h5>
-                <SkillsCheckBox />
-                <br />
-                <MaxResources />
-                <br />
-                <DateComponent/>
+                <SkillsCheckBox /> */}
                 <br />
 
-                <div style={{textAlign:"center"}}>
-                    <button className="btn btn-primary"  onClick={this.getRecommendations}>
+                <div class="form-group">
+
+                    <div class="form-check form-check-inline">
+                        <label class="form-check-label" for="asd">Product Location</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1Engr" value="option1"
+                            ></input>
+                        <label class="form-check-label" for="inliddndeRadio1">IL</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2UX" value="option2"
+                             />
+                        <label class="form-check-label" for="inlinefdfgRadio2">TX</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3PM" value="option3"
+                             />
+                        <label class="form-check-label" for="inlineRadgfdio3">AZ</label>
+                    </div>
+                </div>
+
+
+                <br />
+                <MaxResources />
+
+
+
+                <br />
+                <DateComponent />
+                <br />
+
+                <div style={{ textAlign: "center" }}>
+                    <button className="btn btn-primary" onClick={this.getRecommendations}>
                         Get Recommendations
                     </button>
                 </div>
-                <hr/>
+                <hr />
                 <div id="recommendationsResults">
 
                 </div>
@@ -70,27 +102,53 @@ class Recommendations extends React.Component {
         )
     }
 
-    getRecommendations(){
-        var checkedBoxes=document.getElementById("skillsCheckBoxID");
-        var skills=[];
-        for(var i=0;i<=6;i++){
-            if(checkedBoxes.childNodes[i].childNodes[0].checked){
-                skills.push(checkedBoxes.childNodes[i].childNodes[1].innerHTML);
-            }
+    getRecommendations() {
+        // var checkedBoxes = document.getElementById("skillsCheckBoxID");
+        // var skills = [];
+        // for (var i = 0; i <= 6; i++) {
+        //     if (checkedBoxes.childNodes[i].childNodes[0].checked) {
+        //         skills.push(checkedBoxes.childNodes[i].childNodes[1].innerHTML);
+        //     }
+        // }
+        // console.log(JSON.stringify(skills));
+        var location;
+        if(document.getElementById("inlineRadio1Engr").checked==true){
+            location="IL";
         }
-        console.log(JSON.stringify(skills));
-        var resources=document.getElementById("ProjectInputIDRecommendations").innerHTML;
-        console.log(resources)
-        var date=document.getElementById("prject-date-input").value;
-        console.log(date);
+        else if(document.getElementById("inlineRadio2UX").checked==true){
+            location="TX";
+        }
+        else if(document.getElementById("inlineRadio3PM").checked==true){
+            location="AZ";
+        }
 
-        var formdata=new FormData();
-        formdata.append("skills",JSON.stringify(skills));
-        formdata.append("resourcesDemand",resources);
-        formdata.append("date",date);
+        var res=[];
+        var allSele= document.getElementById("divFor");
 
-        doPostRequest(formdata);
-    }   
+        for (var i = 0; i <= allSele.childNodes.length; i++) {
+            try{
+                var selected=(allSele.childNodes[i].childNodes[0].childNodes[1].selectedIndex);
+                if(selected===0)
+                    res.push("senior");
+                else if(selected===1)
+                    res.push("mid");
+                else res.push("junior")
+            }
+            catch(E){
+                continue;
+            }
+            console.log(res)
+        }
+
+        var data=new FormData();
+        data.append("location",location);
+        data.append("role",res);
+        data.append("date",document.getElementById("prject-date-input").value);
+
+        console.log(location,res,document.getElementById("prject-date-input").value)
+
+        doPostRequest(data);
+    }
 }
 
 export default Recommendations;
