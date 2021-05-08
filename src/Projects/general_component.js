@@ -4,7 +4,7 @@ function General_component(){
     
     return(
         <div>
-            <div className="container" id="accordion" style={{backgroundColor:"black"},{color:"white"}}>
+            <div className="container" id="accordion" >
                 <div class="card">
                     <div class="card-header" id="headingOne">
                     <h5 class="mb-0">
@@ -16,7 +16,7 @@ function General_component(){
 
                     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                     <div class="card-body">
-                    Engrs-PM-UX-->  15:6:7
+                    Engrs-PM-UX--  15:6:7
                     </div>
                     </div>
                 </div>
@@ -30,7 +30,7 @@ function General_component(){
                     </div>
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                     <div class="card-body">
-                        <div id="ancher-product">tytytyu</div>
+                        <div id="ancher-product">.....</div>
                     </div>
                     </div>
                 </div>
@@ -51,7 +51,7 @@ function General_component(){
                 </div>
 
 
-                <div class="card">
+                <div class="card" >
                     <div class="card-header" id="headingFour">
                     <h5 class="mb-0">
                         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
