@@ -45,7 +45,7 @@ function Sidebar(props) {
                 renders the first one that matches the current URL. */}
             <Switch>
               <Route path="/home" >
-                <Home />
+                <Project />
               </Route>
               <Route path="/profile">
                 <Profile />
@@ -57,7 +57,7 @@ function Sidebar(props) {
                 <Recommendations />
               </Route>
               <Route path="/">
-                <Home />
+                <Project />
               </Route>
             </Switch>
           </div>
