@@ -5,12 +5,10 @@ import $ from 'jquery';
 import LoaderButtom from '../LoaderButton';
 import Loader from '../Loader';
 
-function CreateCookie(userID){
+function CreateCookie(userID,imgUrl){
     document.cookie = "af88e4e6783735505auserID="+userID+"; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";
-    //window.location.href="http://localhost:3000/profile";
-	
-	 window.location.href="https://woay.azurewebsites.net/profile";
-	
+    document.cookie = "img="+imgUrl+"; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";
+    window.location.href="http://localhost:3000/profile";
 }
 function checkCookie(){
     const ck=document.cookie.split(";");
@@ -33,7 +31,7 @@ function checkCookie(){
 function doPost(data) {
     
     $.ajax({
-        url:"https://woay-backend.azurewebsites.net/signInGoogle",
+        url:"http://localhost:8080/signInGoogle",
         type:"post",
         data:data,
         contentType:false,
@@ -79,8 +77,7 @@ class LoginBaseContainer extends React.Component {
     componentDidMount() {
         const res=checkCookie();
         if(res){
-            //window.location.href="http://localhost:3000/profile";
-		window.location.href="https://woay.azurewebsites.net/profile";
+            window.location.href="http://localhost:3000/profile";
         }
         else    
             ReactDOM.render(<Login />, document.getElementById("loginContainer"));
@@ -115,9 +112,9 @@ class Login extends React.Component {
         }
         var data=new FormData();
         data.append("type","gsign");
-        data.append("name",name);
-        data.append("profilePicLink",profileUrl);
-        data.append("email",emailID);
+        data.append("name",name);  document.cookie = "name="+name+"; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";
+        data.append("profilePicLink",profileUrl); document.cookie = "img="+profileUrl+"; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";
+        data.append("email",emailID); document.cookie = "img="+emailID+"; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";
         data.append("pass","gsign");
         doPost(data);
         ReactDOM.render(<Loader/>,document.getElementById("googleLoader"));
