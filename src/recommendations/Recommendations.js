@@ -6,10 +6,10 @@ import $ from 'jquery';
 
 function doPostRequest(data) {
     $.ajax({
-        //url: "http://localhost:8080/getRecommendations",
-        url:"https://woay-backend.azurewebsites.net/recommendations",
+        url: "http://localhost:8080/getV",
+       // url:"https://woay-backend.azurewebsites.net/recommendations",
         type: "post",
-        data: data,
+        data: (data),
         contentType: false,
         processData: false,
         success: function (response) {
@@ -63,17 +63,17 @@ class Recommendations extends React.Component {
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1Engr" value="option1"
                             ></input>
-                        <label class="form-check-label" for="inliddndeRadio1Engr">IL</label>
+                        <label class="form-check-label" for="inliddndeRadio1">IL</label>
                     </div>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2UX" value="option2"
                              />
-                        <label class="form-check-label" for="inlinefdfgRadio2UX">TX</label>
+                        <label class="form-check-label" for="inlinefdfgRadio2">TX</label>
                     </div>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3PM" value="option3"
                              />
-                        <label class="form-check-label" for="inlineRadgfdio3PM">AZ</label>
+                        <label class="form-check-label" for="inlineRadgfdio3">AZ</label>
                     </div>
                 </div>
 
