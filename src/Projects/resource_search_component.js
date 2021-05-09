@@ -95,6 +95,13 @@ class Resource_search_component extends React.Component{
     constructor(props){
         super(props);
         this.loadResour=this.loadResour.bind(this);
+        this.vh1=this.vh1.bind(this);
+        this.vh2=this.vh2.bind(this);
+        this.vh3=this.vh3.bind(this);
+        this.bh1=this.bh1.bind(this);
+        this.bh2=this.bh2.bind(this);
+        this.bh3=this.bh3.bind(this);
+        
     }
 
     loadResour(){
@@ -107,6 +114,25 @@ class Resource_search_component extends React.Component{
 
     componentDidMount(){
         
+    }
+
+    vh1(){
+        ReactDOM.render(<SeniorResource/>,document.getElementById("pills-tabContent1"));
+    }
+    vh2(){
+        ReactDOM.render(<MidResource/>,document.getElementById("pills-tabContent1"));
+    }
+    vh3(){
+        ReactDOM.render(<JuniorResource/>,document.getElementById("pills-tabContent1"));
+    }
+    bh1(){
+        ReactDOM.render(<EngrRole/>,document.getElementById("pills-tabContent2"));
+    }
+    bh2(){
+        ReactDOM.render(<PmResource/>,document.getElementById("pills-tabContent2"));
+    }
+    bh3(){
+        ReactDOM.render(<UxResource/>,document.getElementById("pills-tabContent2"));
     }
     render(){
         return(
@@ -131,26 +157,18 @@ class Resource_search_component extends React.Component{
                         <div className="container">
                             <ul  class="nav nav-pills mb-3" id="pills-tab" role="tablist" >
                                 <li class="nav-item">
-                                    <a class="nav-link active" id="pills-senior-tab" data-toggle="pill" href="#pills-senior" role="tab" aria-controls="pills-senior" aria-selected="true">Senior</a>
+                                    <a class="nav-link active" onClick={this.vh1} id="pills-senior-tab" data-toggle="pill" href="#pills-senior" role="tab" aria-controls="pills-senior" aria-selected="true">Senior</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="pills-mid-tab" data-toggle="pill" href="#pills-mid" role="tab" aria-controls="pills-mid" aria-selected="false">Mid</a>
+                                    <a class="nav-link" onClick={this.vh2} id="pills-mid-tab" data-toggle="pill" href="#pills-mid" role="tab" aria-controls="pills-mid" aria-selected="false">Mid</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="pills-junior-tab" data-toggle="pill" href="#pills-junior" role="tab" aria-controls="pills-junior" aria-selected="false">Junior</a>
+                                    <a class="nav-link"  onClick={this.vh3} id="pills-junior-tab" data-toggle="pill" href="#pills-junior" role="tab" aria-controls="pills-junior" aria-selected="false">Junior</a>
                                 </li>
                             </ul>
     
-                            <div class="tab-content" id="pills-tabContent">
-                            <div class="tab-pane fade show active" id="pills-senior" role="tabpanel" aria-labelledby="pills-senior-tab">
-                                <SeniorResource/>
-                            </div>
-                            <div class="tab-pane fade" id="pills-mid" role="tabpanel" aria-labelledby="pills-mid-tab">
-                                 <MidResource/>  
-                                </div>
-                            <div class="tab-pane fade" id="pills-junior" role="tabpanel" aria-labelledby="pills-junior-tab">
-                               <JuniorResource/> 
-                                 </div>
+                            <div class="tab-content" id="pills-tabContent1">
+
                             </div>
                         </div>
                     </div>
@@ -160,25 +178,19 @@ class Resource_search_component extends React.Component{
                         <div className="container" >
                         <h6>Roles</h6>
                         
-                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                        <ul class="nav nav-pills mb-3" id="pills-tab4" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="pills-engr-tab" data-toggle="pill" href="#pills-engr" role="tab" aria-controls="pills-engr" aria-selected="true">Engr</a>
+                                <a class="nav-link active" onClick={this.bh1} id="pills-engr-tab" data-toggle="pill" href="#pills-engr" role="tab" aria-controls="pills-engr" aria-selected="true">Engr</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="pills-pm-tab" data-toggle="pill" href="#pills-pm" role="tab" aria-controls="pills-pm" aria-selected="false">P.M.</a>
+                                <a class="nav-link" id="pills-pm-tab" onClick={this.bh2} data-toggle="pill" href="#pills-pm" role="tab" aria-controls="pills-pm" aria-selected="false">P.M.</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="pills-ux-tab" data-toggle="pill" href="#pills-ux" role="tab" aria-controls="pills-ux" aria-selected="false">U.X.</a>
+                                <a class="nav-link" id="pills-ux-tab"  onClick={this.bh3} data-toggle="pill" href="#pills-ux" role="tab" aria-controls="pills-ux" aria-selected="false">U.X.</a>
                             </li>
                         </ul>
-                         <div class="tab-content" id="pills-tabContent">
-                            <div class="tab-pane fade show active" id="pills-engr" role="tabpanel" aria-labelledby="pills-engr-tab">
-                               
-                                <EngrRole/> </div>
-                            <div class="tab-pane fade" id="pills-pm" role="tabpanel" aria-labelledby="pills-pm-tab">. 
-                            <PmResource/>    </div>
-                            <div class="tab-pane fade" id="pills-ux" role="tabpanel" aria-labelledby="pills-ux-tab">. 
-                            <UxResource/>      </div>    
+                         <div class="tab-content" id="pills-tabContent2">
+                             
                         </div>     
     
                     </div>  

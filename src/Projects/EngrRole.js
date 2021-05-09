@@ -9,7 +9,7 @@ function doPost(){
         url:"https://woay-backend.azurewebsites.net/engr",
         type:"get",
         success: function(res) {
-            console.log(res);
+            //console.log(res);
             var productPart=res[0];
             ReactDOM.render(<UserProfile data={res}/>,document.getElementById("engrResc"));
         },

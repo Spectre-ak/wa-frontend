@@ -3,7 +3,75 @@ import React from "react"
 import ReactDOM from "react-dom"
 import Loader from '../Loader';
 import $ from 'jquery'
-import UserProfile from '../UserList';
+import {m1,m2,m3,m4,m5,m6,m7,m8,f1,f2,f3,f4,f5,f6,f7,f8} from '../UserList';
+
+function User(props){
+    return(
+        <div>
+            <p>
+             <img src={props.src} style={{borderRadius:"40px 40px 40px 40px",width:"40px",width:"40px"}} /> {props.data["Name"]}, <a>{props.data["Role"]}</a>,
+             <a>{props.data["Role Level"]}</a>, <a>  {props.data["Location"]}</a> 
+             <div> &nbsp;  </div>
+            
+            <details><summary style={{outline: "none"}}>Read More</summary>
+                <p><a>Skills: {props.data["Skill 1"]} {props.data["Skill 2"]} {props.data["Skill 3"]} {props.data["Skill 4"]} </a></p> 
+                
+                <p>Product: {props.data["Product"]}, <a>Prod Build Location {props.data["Prod Build Location"]}</a>,
+                <a>Prod Start Date: {props.data["Prod Start Date"]}</a>,  
+                <a>Prod End Date: {props.data["Prod End Date"]}</a> </p>
+                
+                <p>Employee/ Contract: {props.data["E/C"]}</p>
+                <p>Available for Other areas: {props.data["Available for Other areas"]}</p>
+                <p>resource product start date: {props.data["resource product start date"]}</p>
+                <p>resource product end date: {props.data["resource product end date"]}</p>
+                <p> <a>Anchor: {props.data["Anchor"]} </a></p>
+                
+            </details>
+            </p>
+        </div>
+    )
+}
+
+class UserProfile extends React.Component{
+    constructor(props){
+        super(props);
+    }
+    
+    componentDidMount(){
+        var male=[m1,m2,m3,m4,m5,m6,m7,m8];
+        var female=[f1,f2,f3,f4,f5,f6,f7,f8];
+
+      //  console.log(this.props.data);
+        var userArr=this.props.data;
+        var counter=1;
+
+        var users=[];
+        userArr.forEach(element => {
+            var gender=element["Gender"];
+            var imgSrc="";
+            if(gender==="M"){
+                imgSrc=male[Math.floor(Math.random() * 7)]
+            }
+            else{
+                imgSrc=female[Math.floor(Math.random() * 7)]
+            }
+            counter++;
+            users.push(<User src={imgSrc} data={element} key={counter}/>)
+        });
+        //console.log(users)
+        ReactDOM.render(users,document.getElementById("userDetailsGame"));
+        
+    }
+
+    render(){
+        return(
+            <div id="userDetailsGame">
+
+            </div>
+        )
+    }
+}
+
 
 function ProjectDisplay(props){
     return(
@@ -54,7 +122,7 @@ function doPost(locationIndex,type){
             url:"https://woay-backend.azurewebsites.net/all",
             type:"get",
             success: function(res) {
-                console.log(res);
+                //console.log(res);
                 var productPart=res[0];
                 ReactDOM.render(<UserProfile data={res}/>,document.getElementById("locationBasedResults"));
             }
@@ -66,7 +134,7 @@ function doPost(locationIndex,type){
             url:"https://woay-backend.azurewebsites.net/all",
             type:"get",
             success: function(res) {
-                console.log(res);
+                //console.log(res);
                 var filteredRes=[];
                 res.forEach(element => {
                     if(element["Location"]==="AZ")
@@ -82,7 +150,7 @@ function doPost(locationIndex,type){
             url:"https://woay-backend.azurewebsites.net/all",
             type:"get",
             success: function(res) {
-                console.log(res);
+               // console.log(res);
                 var filteredRes=[];
                 res.forEach(element => {
                     if(element["Location"]==="IL")
@@ -98,7 +166,7 @@ function doPost(locationIndex,type){
             url:"https://woay-backend.azurewebsites.net/all",
             type:"get",
             success: function(res) {
-                console.log(res);
+              //  console.log(res);
                 var filteredRes=[];
                 res.forEach(element => {
                     if(element["Location"]==="TX")
@@ -119,7 +187,7 @@ function doPost(locationIndex,type){
                 for(var i=1;i<17;i++){
                     if(res[i]["Prod Build Location"]==="TX"){
                         arr.push(res[i]);
-                        console.log(res[i])
+                        //console.log(res[i])
                     }
                 }
                 ReactDOM.render(<ProjectDisplayList data={arr}/>,document.getElementById("locationBasedResults"));
@@ -141,7 +209,7 @@ function doPost(locationIndex,type){
                 for(var i=1;i<17;i++){
                     if(res[i]["Prod Build Location"]==="AZ"){
                         arr.push(res[i]);
-                        console.log(res[i])
+                        //console.log(res[i])
                     }
                 }
                 ReactDOM.render(<ProjectDisplayList data={arr}/>,document.getElementById("locationBasedResults"));
@@ -161,7 +229,7 @@ function doPost(locationIndex,type){
                 for(var i=1;i<17;i++){
                     if(res[i]["Prod Build Location"]==="IL"){
                         arr.push(res[i]);
-                        console.log(res[i])
+                        //console.log(res[i])
                     }
                 }
                 ReactDOM.render(<ProjectDisplayList data={arr}/>,document.getElementById("locationBasedResults"));
