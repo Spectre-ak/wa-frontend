@@ -32,14 +32,14 @@ class Project extends React.Component {
 
         return (
             <div className="container">
-                <h3>What do you want to know about products</h3>
-                
+                <h3>Get details based on products, resources and locations </h3>
 
-                    1. get details of a product by product name from a range of products 
-                    Product 1,2,3....
+                    <small>
+                        Note: These details are from a sample dataset available at <a href="https://docs.google.com/spreadsheets/d/1PkATem4Il_rVosE35tpwTPgydf_Ni1wtqfPFN-Zg6x0/edit#gid=2051697878">sampleDataset.sheets</a>
+
+                    </small>
+
                     <br/>
-                    2. get details of ongoing projecs based on locations (options)
-
                     <br/>
 
                     <nav>
