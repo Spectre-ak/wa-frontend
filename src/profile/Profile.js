@@ -1,31 +1,12 @@
 import React from 'react'
 import ReactDOM from "react-dom";
 import ReactTagInput from "@pathofdev/react-tag-input";
-import profile from './profile_picture.png'
 import "@pathofdev/react-tag-input/build/index.css";
 import { useState, Fragment } from "react";
 import ProjectInput from './ProjectInput';
+import profile from './profile_picture.png'
 
-function pro(){
-    return(
-            <div className="container" style={{textAlign:"center"}}id="profile-update">
-                <div className="container" >
-                    <div className="row" >
-                        <div className="col">
-                            <img className="rounded-circle border border-secondary" src={profile} alt="Profile Picture" height={150}  width={150}/>
-                            <h3>Name</h3>
-                            <h6>Email</h6>
-                            <br></br>
-                            <h4>Skills</h4>
-                            <div id="profile_skills"></div>
-                        </div>
-                        <br></br>
-                    </div>
-                </div>
-            </div>
-    )
 
-}
 
 function checkCookie(){
     const ck=document.cookie.split(";");
@@ -41,6 +22,7 @@ function checkCookie(){
           console.log("found");
           fl=true;
         }
+
         //alert("exe");
     });
     if(fl)
@@ -82,16 +64,39 @@ class Profile extends React.Component {
         console.log(res);
         if(res.includes("false")){
             //alert(res);
-            //window.location.href="http://localhost:3000/login";
-            window.location.href="https://woay.azurewebsites.net/login";
+            window.location.href="http://localhost:3000/login";
         }
+
+        var ck=document.cookie.split(";");
+        console.log(ck);
         
     }
 
     render() {
         return (
             <div className="container">
-                <pro/>
+                <br/><br></br>
+                
+            <div className="container" id="profile-update">
+                <div className="container">
+                    <div className="row" >
+                        <div  className="col">
+                            <img className="rounded-circle border border-secondary" src={profile} alt="Profile Picture" height={100}  width={100}/>
+                            <h3><a>Name</a></h3>
+                            <a>Email</a>
+                        </div>
+                        <br></br>
+                        <div className="col">
+                            <h3>Skills</h3>
+                            <div> <App/> </div>
+                        </div>
+                    </div>
+                </div>
+               
+                
+        </div>
+                
+
             </div>
         )
     }
