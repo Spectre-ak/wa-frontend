@@ -25,9 +25,7 @@ function Sidebar(props) {
                 </button>
                 <div class="navbar-collapse collapse" id="collapsingNavbar">
                 <ul class="navbar-nav nav nav-pills" id="pills-tab" role="tablist">
-                      <li class="nav-item">
-                          <Link to="/home" class={props.classnames.home} id="pills-home-tab" data-toggle="pill" role="tab" aria-controls="pills-home" aria-selected="true">Home</Link>
-                      </li>
+                      
                       <li class="nav-item">
                           <Link to="/projects" class={props.classnames.projects}  id="pills-project-tab" data-toggle="pill"  role="tab" aria-controls="pills-project" aria-selected="false">Projects</Link>
                       </li>

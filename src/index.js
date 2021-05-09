@@ -39,14 +39,8 @@ const ar={
   "recommendations":"nav-link",
   "profile":"nav-link"
 }
-if(window.location.href.includes("home")){
-  ar.home="nav-link active";
-  ReactDOM.render(
-    <Sidebar classnames={ar}/>,document.getElementById("sidebar")
-   );
-}
 
-else if(window.location.href.includes("projects")){
+if(window.location.href.includes("projects")){
   ar.projects="nav-link active";
   ReactDOM.render(
     <Sidebar classnames={ar}/>,document.getElementById("sidebar")
@@ -70,7 +64,7 @@ else if(window.location.href.includes("login")){
   );
 }
 else {
-  ar.home="nav-link active";
+  ar.projects="nav-link active";
   ReactDOM.render(
     <Sidebar classnames={ar}/>,document.getElementById("sidebar")
    );
