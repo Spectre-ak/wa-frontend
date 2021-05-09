@@ -83,8 +83,12 @@ class Recommendations extends React.Component {
     render() {
         return (
             <div className="container">
-                <h3>This will take user inputs and will provide best recommendations based on skills etc...</h3>
-
+                <h3>Enter details to get best recommendations for your product</h3>
+                <small>
+                    Note: These details are from a sample dataset available at <a href="https://docs.google.com/spreadsheets/d/1PkATem4Il_rVosE35tpwTPgydf_Ni1wtqfPFN-Zg6x0/edit#gid=2051697878">sampleDataset.sheets</a>
+                    
+                </small>
+            <br/>
                 {/* <br />
                 <h5>Select Skills</h5>
                 <SkillsCheckBox /> */}
