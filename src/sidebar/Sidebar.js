@@ -35,6 +35,12 @@ function Sidebar(props) {
                       <li class="nav-item">
                         <Link to="/profile" class={props.classnames.profile}  id="pills-profile-tab" data-toggle="pill"  role="tab" aria-controls="pills-profile" aria-selected="false">Profile</Link>
                       </li>
+                       
+                      <li class="nav-item">
+                          <a style={{marginLeft:"6px"}} href="https://github.com/Spectre-Ak/wa-frontend" id="pills-home-tab" aria-controls="pills-home" aria-selected="true">
+                          <img src={im} /></a>
+                      </li>
+        
                     </ul>
                     
                 </div>
