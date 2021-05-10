@@ -2,7 +2,7 @@ import Home from '../home/Home';
 import Project from '../Projects/Projects';
 import Recommendations from '../recommendations/Recommendations';
 import Profile from '../profile/Profile'
-
+import im from "../GitHub-Mark-Light-32px.png";
 import {
     BrowserRouter as Router,
     Switch,
