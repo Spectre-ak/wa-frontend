@@ -8,7 +8,7 @@ import Loader from '../Loader';
 function CreateCookie(userID,imgUrl){
     document.cookie = "af88e4e6783735505auserID="+userID+"; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";
     document.cookie = "img="+imgUrl+"; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";
-    window.location.href="http://localhost:3000/profile";
+    window.location.href="https://woay-backend.azurewebsites.net/profile";
 }
 function checkCookie(){
     const ck=document.cookie.split(";");
@@ -31,7 +31,7 @@ function checkCookie(){
 function doPost(data) {
     
     $.ajax({
-        url:"http://localhost:8080/signInGoogle",
+        url:"https://woay-backend.azurewebsites.net/signInGoogle",
         type:"post",
         data:data,
         contentType:false,
@@ -77,7 +77,7 @@ class LoginBaseContainer extends React.Component {
     componentDidMount() {
         const res=checkCookie();
         if(res){
-            window.location.href="http://localhost:3000/profile";
+            window.location.href="https://woay-backend.azurewebsites.net/profile";
         }
         else    
             ReactDOM.render(<Login />, document.getElementById("loginContainer"));
@@ -201,7 +201,7 @@ class SimpleLogin extends React.Component {
 
     }
     backToLoginComponent() {
-        window.location.href = "http://localhost:3000/login";
+        window.location.href = "https://woay-backend.azurewebsites.net/login";
         // window.location.href="https://";
     }
     componentDidMount() {
